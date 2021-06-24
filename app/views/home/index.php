@@ -9,7 +9,7 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" width = "800px" src="<?= BASEURL;?>/img/cangkir-kopin-jago.webp">
+              <img class="d-block w-100" src="<?= BASEURL;?>/img/cangkir-kopin-jago.webp">
             </div>
             <div class="carousel-item">
               <img class="d-block w-100" src="<?= BASEURL;?>/img/teaset-hitam.jpg">
@@ -28,8 +28,10 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+        
       </div>
-    </section>
+      
+  </section>
     
     <section id="card" class="card bg-light py-4">
       <div class="container mb-4">

@@ -11,7 +11,7 @@
                 <a href="<?= BASEURL; ?>/home/detail/<?= $jenis['id_jenis'] ?>"><img class="card-img-top" src="<?= BASEURL ?>/img/<?= $jenis['foto_gerabah']; ?>" alt="Card image cap" width="300px"></a>
                 <div class="card-body">
                   <p class="card-title"><?= $jenis['nama_gerabah']?></p>
-                  <h4 class="card-title"><?= $jenis['harga']?></h4>
+                  <h4 class="card-title">Rp. <?= $jenis['harga']?></h4>
                   <i class="fas fa-star"> 4.5</i>
                 </div>
             </div>

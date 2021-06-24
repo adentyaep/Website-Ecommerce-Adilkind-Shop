@@ -11,7 +11,7 @@
 
         public function detail($id){
             $data['title'] = 'Detail Barang';
-            $data['id_gerabah'] = $this->model('Home_model')->getDataById($id);
+            $data['idgerabah'] = $this->model('Home_model')->getDataById($id);
             $this->view('templates/header', $data);
             $this->view('home/detail', $data);
             $this->view('templates/footer');
@@ -33,8 +33,12 @@
                 $this->view('home/mangkok', $data);
                 $this->view('templates/footer');
             }
-                
-            
+        }
+
+        public function checkout(){
+            $this->view('templates/header');
+            $this->view('home/checkout');
+            $this->view('templates/footer');
         }
     }
 ?>

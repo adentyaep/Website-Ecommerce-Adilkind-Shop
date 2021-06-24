@@ -13,7 +13,7 @@
         }
 
         public function getDataById($id){
-            $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_gerabah=:id');
+            $this->db->query('SELECT * FROM ' . $this->table . ' WHERE idgerabah=:id');
             $this->db->bind('id', $id);
             return $this->db->single();
         }
@@ -22,5 +22,19 @@
             $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_jenis=:idjenis');
             $this->db->bind('idjenis', $idjenis);
             return $this->db->resultSet();
+        }
+
+        public function uploadFoto(){
+            $namaFile = $_FILES['foto_mobil']['name'];
+            $namaSementara = $_FILES['foto_mobil']['tmp_name'];
+            // tentukan lokasi file akan dipindahkan
+            $dirUpload = "img/";
+            // pindahkan file
+            $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+            if ($terupload) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
