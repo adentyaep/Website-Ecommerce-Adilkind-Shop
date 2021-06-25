@@ -13,6 +13,7 @@
                         <img class="card-img-top" src="<?= BASEURL ?>/img/<?= $data['idgerabah']['foto_gerabah']; ?>" alt="Card image cap">
                         <div class="card-body">
                             <input hidden class ="card-title" type="text" id="namaGerabah" name="namaGerabah" value="<?= $data['idgerabah']['nama_gerabah']?>">
+                            <input hidden class ="card-title" type="text" id="idgerabah" name="idgerabah" value="<?= $data['idgerabah']['idgerabah']?>">
                             <h5 class="card-title" id="namaGerabah" name="namaGerabah"><?= $data['idgerabah']['nama_gerabah']?></h5>
                             <p class="card-text text-justify">Cangkir Asli Kopin Berkualitas </p>
                             <input hidden class ="card-title" type="text" id="hargaGerabah" name="hargaGerabah" value="<?= $data['idgerabah']['harga']?>">

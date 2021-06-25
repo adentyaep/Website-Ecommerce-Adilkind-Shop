@@ -40,5 +40,35 @@
             $this->view('home/checkout');
             $this->view('templates/footer');
         }
+
+        public function simpanTransaksi(){
+            $idpelanggan = "1";
+            $idgerabah = $_POST['idgerabah'];
+            $nama_gerabah = $_POST['namaGerabah'];
+            $jml_item = $_POST['jml_item'];
+            $harga = $_POST['hargaGerabah'];
+            $harga_total = $_POST['harga_total'];
+            $alamat = $_POST['alamat'];
+            $namaPenerima = $_POST['nama_penerima'];
+            $provinsi = $_POST['provinsi'];
+            $kab_kota = $_POST['kab_kota'];
+            $kode_pos = $_POST['kode_pos'];
+            $no_hp = $_POST['no_hp'];
+
+            // $detAlamat[] = [
+            //     $namaPenerima,
+            //     $alamat,
+            //     $provinsi,
+            //     $kab_kota,
+            //     $kode_pos,
+            //     $no_hp
+            // ];
+            date_default_timezone_set('Asia/Jakarta');
+            $detAlamat = $namaPenerima . " " . $alamat . " " . $provinsi . " " . $kab_kota . " " . $kode_pos . " " . $no_hp;
+            $tanggal_pesan = date('y-m-d h:i:s');
+
+            $data['id_transaksi'] = $this->model('Transaksi_model')->tambahTransaksi($idpelanggan,$idgerabah,$nama_gerabah,$jml_item,$harga,$harga_total,$tanggal_pesan,$detAlamat);
+
+        }
     }
 ?>
