@@ -46,6 +46,11 @@
                 <div class="card-body">
                   <p class="card-title"><?= $grbh['nama_gerabah']?></p>
                   <h4 class="card-title"><?= $grbh['harga']?></h4>
+                  <?php 
+                    if($grbh['stok'] == 0){
+                  ?>
+                  <p class="btn btn-danger">STOK HABIS</p><br>
+                  <?php }?>
                   <i class="fas fa-star"> 4.5</i>
                 </div>
             </div>

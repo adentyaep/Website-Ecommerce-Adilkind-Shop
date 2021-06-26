@@ -38,5 +38,11 @@
             }
         }
 
+        public function updateStok($idgerabah,$stokAkhir){
+            $sql="UPDATE ".$this->table." SET stok='$stokAkhir' WHERE idgerabah='$idgerabah'";
+            $this->db->query($sql);
+            $this->db->execute();
+        }
+
         
     }

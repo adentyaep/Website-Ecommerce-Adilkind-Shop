@@ -26,5 +26,7 @@
             $this->db->bind('tanggal_pesan',$tanggal_pesan);
             $this->db->bind('alamat',$alamat);
             $this->db->execute();
+
+            
         }
     }

@@ -16,6 +16,7 @@
                             <input hidden class ="card-title" type="text" id="idgerabah" name="idgerabah" value="<?= $data['idgerabah']['idgerabah']?>">
                             <h5 class="card-title" id="namaGerabah" name="namaGerabah"><?= $data['idgerabah']['nama_gerabah']?></h5>
                             <p class="card-text text-justify">Cangkir Asli Kopin Berkualitas </p>
+                            <input hidden class ="card-title" type="text" id="stok" name="stok" value="<?= $data['idgerabah']['stok']?>">
                             <input hidden class ="card-title" type="text" id="hargaGerabah" name="hargaGerabah" value="<?= $data['idgerabah']['harga']?>">
                             <h3 class="card-title" id="hargaGerabah" name="hargaGerabah" >Rp. <?= $data['idgerabah']['harga']?></h3>
                             <i class="fas fa-star"> 4.5</i>
@@ -23,25 +24,37 @@
                         <div class="form p-1">
                             <div class="form-group">
                                 <select class="form-control col-md-2" id="jml_item" name="jml_item">
-                                    <option value="jml">Jumlah Item</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                  </select>
-    
+                                    <option value="">Jumlah Item</option>
+                                    <?php
+                                        $i = 1;
+                                        $total =$data['idgerabah']['stok'];
+                                        while($i<=$total){
+                                          echo "<option value='".$i."'>".$i."</option>";
+                                          $i++;
+                                        }
+                                    ?>
+                                  </select><br>
+                                  <?php 
+                                      if($total == 0){
+                                  ?>
+                                      <p class="btn btn-danger">STOK HABIS</p><br>
+                                      
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-secondary btn-lg col-md-2 m-1" id="btnBeli" data-bs-toggle="modal" data-bs-target="#exampleModal">Beli</button>
-                                <button type="button" class="btn btn-primary btn-lg col-md-2 m-1"><i class="fas fa-plus"></i> Keranjang</button>
-                            </div>
+                                <button disabled type="submit" class="btn btn-outline-secondary btn-lg col-md-2 m-1" id="btnBeli" data-bs-toggle="modal" data-bs-target="#exampleModal">Beli</button>
+                                <button disabled type="button" class="btn btn-primary btn-lg col-md-2 m-1"><i class="fas fa-plus"></i> Keranjang</button>
+                            
+                            <?php }else{?>
+                              
+                                <button  type="submit" class="btn btn-outline-secondary btn-lg col-md-2 m-1" id="btnBeli" data-bs-toggle="modal" data-bs-target="#exampleModal">Beli</button>
+                                <button  type="button" class="btn btn-primary btn-lg col-md-2 m-1"><i class="fas fa-plus"></i> Keranjang</button>
+                              </div>
+                            
+                            <?php }?>
+                          </div>
                         </div>
-                      </div>
-                  </form>
-                      
-                
-                    <div class="card shadow p-3 mb-5 ">
+                      </form>
+                 <div class="card shadow p-3 mb-5 ">
                         <div class="card-header bg-white">
                           <h5>Ulasan</h5>
                         </div>
@@ -54,8 +67,8 @@
                             <h5 class="card-title">Mr. Rudi</h5>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <p class="card-text">Cupangnya Mantap abis</p>
-                          </div>
-                    </div>
+                        </div>
+                  </div>
             </div>
-        </div>
+          </div>
       </section>

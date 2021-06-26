@@ -54,6 +54,10 @@
             $kab_kota = $_POST['kab_kota'];
             $kode_pos = $_POST['kode_pos'];
             $no_hp = $_POST['no_hp'];
+            $stok = $_POST['stok'];
+
+            $stokAkhir = $stok-$jml_item;
+
 
             // $detAlamat[] = [
             //     $namaPenerima,
@@ -66,9 +70,18 @@
             date_default_timezone_set('Asia/Jakarta');
             $detAlamat = $namaPenerima . " " . $alamat . " " . $provinsi . " " . $kab_kota . " " . $kode_pos . " " . $no_hp;
             $tanggal_pesan = date('y-m-d h:i:s');
+            
+            $this->model('Home_model')->updateStok($idgerabah, $stokAkhir);
 
             $data['id_transaksi'] = $this->model('Transaksi_model')->tambahTransaksi($idpelanggan,$idgerabah,$nama_gerabah,$jml_item,$harga,$harga_total,$tanggal_pesan,$detAlamat);
+            
+            header('location:../home/transaksi');
+        }
 
+        public function transaksi(){
+            $this->view('templates/header');
+            $this->view('home/transaksi');
+            $this->view('templates/footer');
         }
     }
 ?>

@@ -1,4 +1,13 @@
+<?php
+ 
+    $urlProv = file_get_contents('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+    $urlKec = file_get_contents('https://dev.farizdotid.com/api/daerahindonesia/kelurahan?id_kecamatan=3214010');
+    $urlKab = file_get_contents('https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=33');
 
+    $dataKab = json_decode($urlKab, true);
+    $dataProv = json_decode($urlProv, true);
+    $dataKec = json_decode($urlKec, true);
+?>
 <div class="container pt-5">
     <div class="modal-content">
                           <div class="modal-header">
@@ -23,6 +32,8 @@
                                         </div>
                                         <span class="text-muted" id="hargaGerabah" >Rp. <?= $harga_total = $_POST['hargaGerabah'] * $_POST['jml_item'];?></span>
                                         <input type="hidden" name="hargaGerabah" value="<?= $harga_total = $_POST['hargaGerabah'] * $_POST['jml_item']; ?>">
+                                        <input type="hidden" name="stok" value="<?= $_POST['stok'] ?>">
+
                                       </li>
                                       <li class="list-group-item d-flex justify-content-between bg-light">
                                         <div class="text-success">
@@ -60,20 +71,33 @@
                                         <div class="col-md-12 mt-2">
                                           <label for="country" class="form-label">Provinsi</label>
                                           <select class="form-control col-md" id="provinsi" name="provinsi" required>
-                                            <option value="">Pilih...</option>
-                                            <option value="jateng">Jawa Tengah</option>
+                                            <option value="">Pilih Provinsi...</option>
+                                            <?php
+                                              foreach($dataProv['provinsi'] as $tiapProv){
+                                                echo "<option value='".$tiapProv['nama']."'>".$tiapProv['nama']."</option>";
+                                              }
+
+                                            ?>
                                           </select>
                                           <div class="invalid-feedback">
                                             Anda belum memilih provinsi
                                           </div>
                                         </div>
+                                        <?php
+                                         
+
+                                        ?>
                             
                                         <div class="col-md-12 mt-4">
                                           <label for="state" class="form-label">Kabupaten/Kota</label>
                                           <select class="form-control col-md" id="kab_kota" name="kab_kota" required>
-                                            <option value="">Pilih...</option>
-                                            <option value="smg">Semarang</option>
-                                            <option value="bbs">Brebes</option>
+                                            <option value="">Pilih Kabupaten/Kota...</option>
+                                            <?php
+                                              foreach($dataKab['kota_kabupaten'] as $tiapKab){
+                                                echo "<option value='".$tiapKab['nama']."'>".$tiapKab['nama']."</option>";
+                                              }
+
+                                            ?>
                             
                                           </select>
                                           <div class="invalid-feedback">
