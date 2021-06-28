@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     class Home extends Controller{
         public function index(){
             $data['nama'] = "Adilkind";
@@ -36,13 +37,21 @@
         }
 
         public function checkout(){
-            $this->view('templates/header');
-            $this->view('home/checkout');
-            $this->view('templates/footer');
+            if(!isset($_SESSION['login'])){
+                $this->view('templates/header');
+                $this->view('login/login');
+                $this->view('templates/footer');
+            }else{
+                $this->view('templates/header');
+                $this->view('home/checkout');
+                $this->view('templates/footer');
+            }
+
+            
         }
 
         public function simpanTransaksi(){
-            $idpelanggan = "1";
+            $idpelanggan = $_POST['idPelanggan'];
             $idgerabah = $_POST['idgerabah'];
             $nama_gerabah = $_POST['namaGerabah'];
             $jml_item = $_POST['jml_item'];
@@ -82,6 +91,49 @@
             $this->view('templates/header');
             $this->view('home/transaksi');
             $this->view('templates/footer');
+        }
+
+        public function login(){
+            $this->view('templates/header');
+            $this->view('login/login');
+            $this->view('templates/footer');
+        }
+        public function checkLogin(){
+            
+            $username = $_POST['username'];
+            $pass = $_POST['pass'];
+
+            $this->model('Login_model')->checkLogin($username,$pass);
+
+            
+                header('location:../home');
+            
+            
+        }
+
+        public function daftar(){
+            $this->view('templates/header');
+            $this->view('login/tambah');
+            $this->view('templates/footer');
+        }
+
+        public function tambah(){
+            
+            $nama = $_POST['nama'];
+            $username = $_POST['username'];
+            $pass = $_POST['pass'];
+
+            $this->model('Login_model')->simpanAkun($nama,$username,$pass);
+            session_start();
+            header('location:../home');
+        }
+
+        public function logout(){
+
+            session_start();
+            session_destroy();
+
+            header('location:../home');
         }
     }
 ?>

@@ -56,6 +56,7 @@
                                         <div class="col-12 mt-2">
                                           <label for="email" class="form-label">Nama Penerima <span class="text-muted">(Optional)</span></label>
                                           <input type="text" class="form-control" id="nama_penerima" name="nama_penerima" placeholder="contoh : abdul... ">
+                                          <input type="hidden" class="form-control" id="nama_penerima" name="idPelanggan" value="<?= $_SESSION['id']?>">
                                           <div class="invalid-feedback">
                                             Anda belum mengisi nama pengirim
                                           </div>
