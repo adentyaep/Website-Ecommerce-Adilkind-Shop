@@ -61,12 +61,12 @@
                         <div class="card-body">
                           <h5 class="card-title">Mr. Ahmad</h5>
                           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                          <p class="card-text">Cupangnya keren abis</p>
+                          <p class="card-text">Cangkirnya keren abis</p>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Mr. Rudi</h5>
                             <i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <p class="card-text">Cupangnya Mantap abis</p>
+                            <p class="card-text">Mangkoknya Mantap abis</p>
                         </div>
                   </div>
             </div>

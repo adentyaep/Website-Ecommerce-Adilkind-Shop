@@ -10,7 +10,9 @@
 
         public function checkLogin($username, $pass){
 
-            $this->db->query('SELECT * FROM'.$this->table.' WHERE username = "$username" AND password = "$pass"');
+            $this->db->query('SELECT * FROM tb_user WHERE username =:username AND password=:pass');
+            $this->db->bind('username', $username);
+            $this->db->bind('pass', $pass);
             $hasil = $this->db->single();
 
             session_start();
